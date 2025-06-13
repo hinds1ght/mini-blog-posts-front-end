@@ -1,16 +1,20 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { handleLogin } from "../utils/handleLogin"
-//import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Login(){
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    const navigate = useNavigate();
 
-    function handleSubmit(e){
+    const handleSubmit = async (e)=>{
         e.preventDefault();
 
-        handleLogin(emailRef.current.value, passwordRef.current.value)
+     const data = await handleLogin(emailRef.current.value, passwordRef.current.value, navigate)
+        if (!data) {
+            throw new Error("you failed")
+        } console.log("user and token:", data)
     }
 
      return(
