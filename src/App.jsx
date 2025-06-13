@@ -1,6 +1,6 @@
-
+import Login from './Login'
 
 function App() {
- return <><div>Hello World</div></> 
+ return <><Login/></> 
 }
 export default App
