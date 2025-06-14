@@ -1,18 +1,21 @@
 import { useRef } from 'react'
-import { handleLogin } from "../utils/handleLogin"
+//import { sanitizeInput } from "../utils/sanitizeInput"
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from "../utils/authContext.jsx" 
 
 function Login(){
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    const {login} = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
 
-     const data = await handleLogin(emailRef.current.value, passwordRef.current.value, navigate)
-        if (!data) {
+     const data = await login(emailRef.current.value, passwordRef.current.value)
+        console.log(data)
+     if (!data) {
             throw new Error("you failed")
         } console.log("user and token:", data)
     }
