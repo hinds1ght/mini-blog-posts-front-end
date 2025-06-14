@@ -4,7 +4,7 @@ import { useAuth } from '../utils/authContext'
 function ProtectedRoute() {
   const { user, loading } = useAuth()
 
-  if (loading) return <div>Loading auth...</div> // 🔄 avoid blank page
+  if (loading) return <div>Checking authentication...</div>
 
   return user ? <Outlet /> : <Navigate to="/" replace />
 }

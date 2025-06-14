@@ -13,19 +13,23 @@ export const AuthProvider = ({ children }) => {
         const res = await fetch("http://localhost:2025/api/auth/refresh", {
           credentials: "include",
         });
-
+  
         if (res.ok) {
           const data = await res.json();
-          setToken(data.accessToken);
-          setUser(data.user);
+  
+          if (data?.accessToken && data?.user) {
+            setToken(data.accessToken);
+            setUser(data.user);
+          }
         }
       } catch (error) {
-        console.error("token refresh failed");
+        // optional: you can handle silent fail here if needed
       } finally {
-        setLoading(false);
+        setLoading(false)
+        //setTimeout(() => setLoading(false), 50);
       }
     };
-
+  
     tryRefresh();
   }, []);
 

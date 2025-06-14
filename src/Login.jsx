@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { sanitizeInput } from "../utils/sanitizeInput"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import { useAuth } from "../utils/authContext.jsx" 
 
 function Login(){
