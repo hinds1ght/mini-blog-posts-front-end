@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-//import { sanitizeInput } from "../utils/sanitizeInput"
+import { useRef, useState } from 'react'
+import { sanitizeInput } from "../utils/sanitizeInput"
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../utils/authContext.jsx" 
 
@@ -8,20 +8,26 @@ function Login(){
     const emailRef = useRef();
     const passwordRef = useRef();
     const {login} = useAuth();
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
-
-     const data = await login(emailRef.current.value, passwordRef.current.value)
-        console.log(data)
-     if (!data) {
-            throw new Error("you failed")
-        } console.log("user and token:", data)
-    }
-
+        setError(null)
+        setLoading(true)
+    
+        try {
+          await login(emailRef.current.value, passwordRef.current.value)
+          navigate('/posts') // ✅ redirect after successful login
+        } catch (err) {
+          setError('Invalid email or password')
+        } finally {
+          setLoading(false)
+        }
+      } 
+    
      return(
-
         <>
             <form onSubmit={handleSubmit}>
                 <h2>Login Form:</h2>
@@ -33,11 +39,10 @@ function Login(){
                 <input type="password" name="password" ref={passwordRef}/>
                 <br />
                 <br />
-                <button type='submit'>Login</button>
-
+                <button type='submit' disabled={loading}>Login</button>
+                {error && <p>{error}</p>}
             </form>
-        </>
-        
+        </>      
     )
 }
 

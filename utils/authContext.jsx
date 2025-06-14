@@ -30,12 +30,27 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    console.log("login~~~~", email, password);
-    return { accessToken: "testtoken", user: { email } };
+    const res = await fetch('http://localhost:2025/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email, password }),
+    })
+
+    if (!res.ok) throw new Error('Login failed')
+
+    const data = await res.json()
+    setToken(data.accessToken)
+    setUser(data.user)
   };
 
-  const logout = () => {
-    console.log("logout");
+  const logout = async () => {
+    await fetch('http://localhost:2025/api/logout', {
+      method: 'POST',
+      credentials: 'include',
+    })
+    setUser(null)
+    setToken(null)
   };
 
   return (

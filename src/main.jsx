@@ -9,18 +9,20 @@ import ProtectedRoute from './ProtectedRoute.jsx'
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <App />,
-      children:[
-        {index: true, element: <Login />},
-        {path:"posts", element: (
-          <ProtectedRoute>
-            <Posts />
-          </ProtectedRoute>
-          )
-        }
-      ]
-  },])
+    children: [
+      { index: true, element: <Login /> },
+
+      {
+        element: <ProtectedRoute />, // <-- layout route here
+        children: [
+          { path: "posts", element: <Posts /> },
+        ],
+      },
+    ],
+  },
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
