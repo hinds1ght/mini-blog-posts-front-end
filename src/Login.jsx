@@ -7,11 +7,14 @@ function Login(){
 
     const emailRef = useRef();
     const passwordRef = useRef();
-    const {login} = useAuth();
+    const {login, user, loading} = useAuth();
     const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [Cloading, setLoading] = useState(false)
     const navigate = useNavigate();
 
+    if (loading) return <div>Loading...</div>;
+    if (user) return <Navigate to="/posts" replace />;
+    
     const handleSubmit = async (e)=>{
         e.preventDefault();
         setError(null)
@@ -39,7 +42,7 @@ function Login(){
                 <input type="password" name="password" ref={passwordRef}/>
                 <br />
                 <br />
-                <button type='submit' disabled={loading}>Login</button>
+                <button type='submit' disabled={Cloading}>Login</button>
                 {error && <p>{error}</p>}
             </form>
         </>      
