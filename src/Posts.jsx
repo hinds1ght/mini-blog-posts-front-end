@@ -1,8 +1,8 @@
 import { useAuth } from "../utils/authContext";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import PostsCard from "./PostsCard"; // separate component
-import "./Posts.css"; // optional: for styling
+import PostsCard from "./PostsCard"; 
+import "./Posts.css"; 
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -13,7 +13,7 @@ function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      if (page > 10) return; // Stop after page 10
+      if (page > 10) return; 
       setLoadingPosts(true);
       try {
         const res = await fetch(`http://localhost:2025/api/posts?page=${page}`, {
@@ -26,7 +26,6 @@ function Posts() {
         if (!res.ok) throw new Error(`Error: ${res.status}`);
         const newPosts = await res.json();
 
-        // Filter out duplicates
         setPosts(prev => {
           const existingIds = new Set(prev.map(p => p.id));
           const filtered = newPosts.filter(p => !existingIds.has(p.id));
