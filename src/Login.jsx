@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { sanitizeInput } from "../utils/sanitizeInput"
-import { useNavigate, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useAuth } from "../utils/authContext.jsx" 
 
 function Login(){
@@ -10,7 +10,6 @@ function Login(){
     const {login, user, loading} = useAuth();
     const [error, setError] = useState(null)
     const [Cloading, setLoading] = useState(false)
-    const navigate = useNavigate();
 
     if (loading) return <div>Loading...</div>;
     if (user) return <Navigate to="/posts" replace />;
@@ -19,10 +18,11 @@ function Login(){
         e.preventDefault();
         setError(null)
         setLoading(true)
-    
+
+        const email = sanitizeInput(emailRef.current.value)
+        
         try {
-          await login(emailRef.current.value, passwordRef.current.value)
-          //navigate('/posts') // ✅ redirect after successful login
+          await login(email, passwordRef.current.value)
         } catch (err) {
           setError('Invalid email or password')
         } finally {
