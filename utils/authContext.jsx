@@ -7,54 +7,49 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const tryRefresh = async () => {
-      try {
-        const res = await fetch("http://localhost:2025/api/auth/refresh", {
-          credentials: "include",
-        });
-  
-        if (res.ok) {
-          const data = await res.json();
-  
-          if (data?.accessToken && data?.user) {
-            setToken(data.accessToken);
-            setUser(data.user);
-          }
+  const tryRefresh = async () => {
+    try {
+      const res = await fetch("http://localhost:2025/api/auth/refresh", {
+        credentials: "include",
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+
+        if (data?.accessToken && data?.user) {
+          setToken(data.accessToken);
+          setUser(data.user);
         }
-      } catch (error) {
-        // optional: you can handle silent fail here if needed
-      } finally {
-        setLoading(false)
-        //setTimeout(() => setLoading(false), 50);
       }
-    };
-  
-    tryRefresh();
+    } catch (error) {
+      console.error("Silent refresh error:", error);
+    }
+  };
+
+  useEffect(() => {
+    tryRefresh().finally(() => setLoading(false));
   }, []);
 
   const login = async (email, password) => {
-    const res = await fetch('http://localhost:2025/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
+    const res = await fetch("http://localhost:2025/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({ email, password }),
-    })
+    });
 
-    if (!res.ok) throw new Error('Login failed')
+    if (!res.ok) throw new Error("Login failed");
 
-    const data = await res.json()
-    setToken(data.accessToken)
-    setUser(data.user)
+    await tryRefresh();
   };
 
   const logout = async () => {
-    await fetch('http://localhost:2025/api/logout', {
-      method: 'POST',
-      credentials: 'include',
-    })
-    setUser(null)
-    setToken(null)
+    await fetch("http://localhost:2025/api/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    setUser(null);
+    setToken(null);
   };
 
   return (

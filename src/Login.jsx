@@ -22,7 +22,7 @@ function Login(){
     
         try {
           await login(emailRef.current.value, passwordRef.current.value)
-          navigate('/posts') // ✅ redirect after successful login
+          //navigate('/posts') // ✅ redirect after successful login
         } catch (err) {
           setError('Invalid email or password')
         } finally {
