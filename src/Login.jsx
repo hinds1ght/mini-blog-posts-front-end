@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { sanitizeInput } from "../utils/sanitizeInput"
 import { Navigate } from 'react-router-dom'
 import { useAuth } from "../utils/authContext.jsx" 
+import { Link } from "react-router-dom"
 
 function Login(){
 
@@ -44,7 +45,7 @@ function Login(){
         <button type="submit" disabled={Cloading} style={styles.button}>
           {Cloading ? "Logging in..." : "Login"}
         </button>
-
+        <Link to="/register">Don't have an account? Register here</Link>
         {error && <p style={styles.error}>{error}</p>}
       </form>
     </div>
