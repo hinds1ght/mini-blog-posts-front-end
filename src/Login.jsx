@@ -43,7 +43,7 @@ function Login(){
         <input type="password" id="password" name="password" ref={passwordRef} style={styles.input} />
 
         <button type="submit" disabled={Cloading} style={styles.button}>
-          {Cloading ? "Logging in..." : "Login"}
+          {Cloading ? "Logging in..." : "🔑 Login"}
         </button>
         <Link to="/register" style={{marginTop: '5px'}}>Don't have an account? Register here</Link>
         {error && <p style={styles.error}>{error}</p>}

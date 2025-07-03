@@ -63,7 +63,7 @@ function Register() {
         />
 
         <button type="submit" disabled={loading} style={styles.button}>
-          {loading ? "Registering..." : "Register"}
+          {loading ? "Registering..." : "📝 Register"}
         </button>
 
         {message && <p style={styles.message}>{message}</p>}
