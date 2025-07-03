@@ -45,7 +45,7 @@ function Login(){
         <button type="submit" disabled={Cloading} style={styles.button}>
           {Cloading ? "Logging in..." : "Login"}
         </button>
-        <Link to="/register">Don't have an account? Register here</Link>
+        <Link to="/register" style={{marginTop: '5px'}}>Don't have an account? Register here</Link>
         {error && <p style={styles.error}>{error}</p>}
       </form>
     </div>
