@@ -22,6 +22,19 @@ function Landing() {
         </ul>
 
         <p style={styles.text}>
+        After logging in, the app fetches blog posts from{" "}
+            <a
+                href="https://jsonplaceholder.typicode.com/posts"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.linkInline}
+            >
+                jsonplaceholder.typicode.com/posts
+            </a>{" "}
+        to demonstrate protected API requests.
+        </p>
+
+        <p style={styles.text}>
           You can either:
         </p>
 
@@ -43,10 +56,11 @@ const styles = {
     backgroundColor: "#f4f6fa",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     padding: "2rem",
   },
   card: {
+    marginTop: "2rem",
     background: "#fff",
     padding: "2rem",
     borderRadius: "12px",

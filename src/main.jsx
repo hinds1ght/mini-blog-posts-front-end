@@ -8,6 +8,8 @@ import Register from './Register.jsx'
 import Posts from './Posts.jsx'
 import { AuthProvider } from '../utils/authContext.jsx'
 import ProtectedRoute from './ProtectedRoute.jsx'
+import Contact from './Contact.jsx'
+import About from './About.jsx'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Landing /> },           
       { path: "login", element: <Login /> },           
-      { path: "register", element: <Register /> },     
+      { path: "register", element: <Register /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },     
       {
         element: <ProtectedRoute />, 
         children: [
