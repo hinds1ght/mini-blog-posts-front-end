@@ -1,5 +1,6 @@
 .posts-container {
     padding: 1rem;
+    min-height: 100vh;
     max-width: 600px;
     margin: auto;
   }

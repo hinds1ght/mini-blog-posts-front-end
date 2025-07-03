@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer"; // Make sure this exists
 
 function Contact() {
   return (
@@ -67,14 +66,15 @@ const styles = {
     padding: "50px",
     alignItems: "center",
     minHeight: "100vh",
+    backgroundColor: "#f4f6fa",
   },
   container: {
     padding: "2rem",
+    background: "#fff",
+    borderRadius: "12px",
+    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.1)",
     maxWidth: "600px",
-    margin: "0 auto",
-    backgroundColor: "#f9fafb",
-    borderRadius: "8px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+    width: "100%",
   },
   heading: {
     fontSize: "1.8rem",
