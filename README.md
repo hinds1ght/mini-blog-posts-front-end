@@ -24,7 +24,7 @@ View it live: [https://mini-blog-posts-front-end.vercel.app/]
 -  Accepts **JWT access and refresh tokens**
 -  Implements **protected routes** that require authentication
 -  Maintains **global auth state** using context
--  Includes **auto-login** and **token refresh handling**
+-  Includes **token refresh handling**
 -  Redirects unauthenticated users to login when accessing secure routes
 
 
