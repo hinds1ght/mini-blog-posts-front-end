@@ -4,7 +4,7 @@ A lightweight and modern **React 19** frontend for a mini blog platform. Built w
 
 ##  Live Demo
 
-View it live: [https://mini-blog-posts-front-end.vercel.app/]
+View it live [here](https://mini-blog-posts-front-end.vercel.app/)
 
 ---
 
