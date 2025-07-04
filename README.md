@@ -30,7 +30,8 @@ View it live [here](https://mini-blog-posts-front-end.vercel.app/)
 ---
 
 ##  Author
-Made by [https://github.com/hinds1ght/] Feel free to fork and contribute
+Made by [hinds1ght](https://github.com/hinds1ght/) 
+Feel free to fork and contribute
 
 
 
