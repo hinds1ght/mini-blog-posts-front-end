@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const tryRefresh = async () => {
     try {
-      const res = await fetch("http://localhost:2025/api/auth/refresh", {
+      const res = await fetch("https://mini-blog-posts-api.onrender.com/api/auth/refresh", {
         credentials: "include",
       });
 
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const res = await fetch("http://localhost:2025/api/login", {
+    const res = await fetch("https://mini-blog-posts-api.onrender.com/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await fetch("http://localhost:2025/api/logout", {
+    await fetch("https://mini-blog-posts-api.onrender.com/api/logout", {
       method: "POST",
       credentials: "include",
     });

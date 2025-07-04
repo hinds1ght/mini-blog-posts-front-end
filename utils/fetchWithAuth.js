@@ -14,7 +14,7 @@ export function useFetchWithAuth() {
 
     // Handle expired token
     if (res.status === 401) {
-      const refreshRes = await fetch('http://localhost:2025/api/refresh', {
+      const refreshRes = await fetch('https://mini-blog-posts-api.onrender.com/api/refresh', {
         credentials: 'include',
       })
 

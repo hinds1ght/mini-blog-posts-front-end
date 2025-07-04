@@ -16,7 +16,7 @@ function Posts() {
       if (page > 10) return; 
       setLoadingPosts(true);
       try {
-        const res = await fetch(`http://localhost:2025/api/posts?page=${page}`, {
+        const res = await fetch(`https://mini-blog-posts-api.onrender.com/api/posts?page=${page}`, {
           credentials: "include",
           headers: {
             Authorization: `Bearer ${token}`,
