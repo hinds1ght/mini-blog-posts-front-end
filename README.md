@@ -27,7 +27,10 @@ View it live: [https://mini-blog-posts-front-end.vercel.app/]
 -  Includes **token refresh handling**
 -  Redirects unauthenticated users to login when accessing secure routes
 
+---
 
+##  Author
+Made by [https://github.com/hinds1ght/] Feel free to fork and contribute
 
 
 
