@@ -59,12 +59,13 @@ const styles = {
   container: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     height: "100vh",
     backgroundColor: "#f7f9fc",
   },
   form: {
     background: "#fff",
+    marginTop: "5rem",
     padding: "2rem",
     borderRadius: "10px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
