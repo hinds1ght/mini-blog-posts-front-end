@@ -65,7 +65,16 @@ function Register() {
           {loading ? "Registering..." : "📝 Register"}
         </button>
 
-        {message && <p style={styles.message}>{message}</p>}
+        {message && (
+            <>
+              <p style={styles.message}>{message}</p>
+              {message === "Registration successful!" && (
+                <p style={styles.redirect}>
+                  <a href="/login" style={styles.link}>Click here to log in</a>
+                </p>
+              )}
+            </>
+          )}
       </form>
     </div>
   );
@@ -124,6 +133,16 @@ const styles = {
       marginTop: "1rem",
       color: "#e74c3c", // red by default for error
       textAlign: "center",
+      fontWeight: "bold",
+    },
+    redirect: {
+      marginTop: "0.5rem",
+      textAlign: "center",
+      color: "#2ecc71", // green
+    },
+    link: {
+      color: "#3498db",
+      textDecoration: "none",
       fontWeight: "bold",
     },
   };
