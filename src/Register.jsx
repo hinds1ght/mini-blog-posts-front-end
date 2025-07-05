@@ -27,7 +27,6 @@ function Register() {
 
       const data = await res.json();
       setMessage("Registration successful!");
-      console.log("New user:", data);
     } catch (err) {
       setMessage(`${err.message}`);
     } finally {
