@@ -36,7 +36,7 @@ const About = () => {
 const styles = {
   section: {
     minHeight: "100vh",
-    padding: "60px 20px",
+    padding: "60px 15px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -45,7 +45,6 @@ const styles = {
   container: {
     background: "#fff",
     maxWidth: "800px",
-    margin: "2px",
     padding: "40px",
     borderRadius: "12px",
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",

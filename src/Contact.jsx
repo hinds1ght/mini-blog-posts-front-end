@@ -63,7 +63,7 @@ const styles = {
   page: {
     display: "flex",
     flexDirection: "column",
-    padding: "50px",
+    padding: "45px",
     alignItems: "center",
     minHeight: "100vh",
     backgroundColor: "#f4f6fa",
